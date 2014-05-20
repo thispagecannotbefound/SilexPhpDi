@@ -32,6 +32,7 @@ To configure PHP-DI's Container Builder, some options are available through the 
 		'writeProxiesToFile' => false,
 		'proxyDirectory' => null,
 		'silexAliases' => true,
+		'injectOnControllers' => true,
 	);
 
 Please refer to [the official documentation](http://php-di.org/doc/container-configuration.html) for more information on container configuration.
@@ -42,14 +43,18 @@ Please refer to [the official documentation](http://php-di.org/doc/container-con
 - `useAutowiring`: Enable or disable the use of autowiring to guess injections.
 - `writeProxiesToFile`: If true, write the proxies to disk to improve performances.
 - `proxyDirectory`: Directory where to write the proxies.
+- `silexAliases`: Add aliases for common Silex services. (see below)
+- `injectOnControllers`: Fulfill controller dependencies after it has been resolved. (see below)
 
-The last option, `silexAliases`, adds aliases for some common Silex service providers, for example:
+Regarding `silexAliases`: this adds aliases for some common Silex service providers, for example:
 
 	return array (
 		'Doctrine\DBAL\Connection' => \DI\link('db'),
 	);
 
 This means that when your class requests a `Doctrine\DBAL\Connection` injection, it will get the same value as when requesting `$app['db']`, which is the default defined in Silex's `DoctrineServiceProvider`.
+
+Regarding `injectOnControllers`: [TODO]
 
 If you need to access the Container Builder directly, you can do so through `$app['di.builder']`.
 
