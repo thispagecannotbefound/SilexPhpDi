@@ -79,8 +79,6 @@ class PhpDiServiceProvider implements ServiceProviderInterface {
 					return $app['di']->get($app['di.options_merged']['container_class']);
 				});
 
-
-
 		$app['di.options_merged'] = $app->share(function() use($app) {
 					return array_merge($app['di.default_options'], $app['di.options']);
 				});
