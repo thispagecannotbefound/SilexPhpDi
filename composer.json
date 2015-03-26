@@ -14,7 +14,7 @@
 	],
 	"require": {
 		"acclimate/container": "~1.0",
-		"mnapoli/php-di": "~4.1",
+		"mnapoli/php-di": "~4.5",
 		"silex/silex": "~1.1"
 	},
 	"autoload": {
